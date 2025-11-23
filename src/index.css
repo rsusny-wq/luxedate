@@ -1,0 +1,83 @@
+:root {
+  /* Premium Color Palette */
+  --color-bg-main: #050508;
+  --color-bg-surface: #12121a;
+  --color-bg-surface-hover: #1c1c26;
+  
+  --color-primary: #d4af37; /* Gold */
+  --color-primary-hover: #f0c750;
+  --color-primary-dim: #8a7020;
+  
+  --color-accent: #e63946; /* Deep Rose for romantic actions */
+  
+  --color-text-main: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-text-gold: #d4af37;
+  
+  --border-color: rgba(212, 175, 55, 0.2);
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Effects */
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.15);
+  --glass-bg: rgba(18, 18, 26, 0.7);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-main);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utility Classes */
+.text-gold { color: var(--color-text-gold); }
+.text-muted { color: var(--color-text-muted); }
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: var(--glass-border);
+  border-radius: 16px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}

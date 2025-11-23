@@ -1,0 +1,80 @@
+.dashboard-container {
+    min-height: 100vh;
+    background: var(--color-bg-main);
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.dashboard-header h2 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.dashboard-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.matching-view,
+.matched-view,
+.date-mode-view,
+.feedback-view {
+    animation: fadeIn 0.5s ease-out;
+    text-align: center;
+}
+
+.matching-view h3 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-muted);
+}
+
+.matched-view h3 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.matched-view p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xl);
+}
+
+.pool-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pool-summary {
+    margin-bottom: var(--spacing-xl);
+}
+
+.fund-amount {
+    font-size: 2rem;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
