@@ -1,12 +1,22 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// In a real app, this should be in an env variable. 
-// For this prototype, we'll use the provided key directly but securely.
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+// Load API key from environment variable (VITE_GEMINI_API_KEY)
+// If not set, AI features will gracefully degrade
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY || "";
 
-const genAI = new GoogleGenerativeAI(API_KEY);
+// Initialize Gemini client only if API key is available
+let genAI: GoogleGenerativeAI | null = null;
+if (API_KEY) {
+    genAI = new GoogleGenerativeAI(API_KEY);
+}
 
 export const generateResponse = async (prompt: string, history: { role: "user" | "model", parts: string }[] = []) => {
+    // Return a fallback message if API key is not configured
+    if (!genAI || !API_KEY) {
+        console.warn("Gemini API key not configured. Set VITE_GEMINI_API_KEY environment variable to enable AI features.");
+        return "I apologize, but the AI service is not currently configured. Please contact support or try again later.";
+    }
+
     try {
         const model = genAI.getGenerativeModel({
             model: "gemini-2.0-flash",
