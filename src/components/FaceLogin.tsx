@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import * as faceapi from 'face-api.js';
 import { Button } from './Button';
 import './FaceLogin.css';
 
@@ -11,7 +10,6 @@ interface FaceLoginProps {
 export const FaceLogin: React.FC<FaceLoginProps> = ({ onLogin, onCancel }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [isLoading, setIsLoading] = useState(true);
     const [status, setStatus] = useState('Initializing Face ID...');
 
     useEffect(() => {
@@ -21,7 +19,6 @@ export const FaceLogin: React.FC<FaceLoginProps> = ({ onLogin, onCancel }) => {
                 // For this prototype, we'll simulate the loading delay and mock the detection
                 // as loading external models requires static file setup
                 await new Promise(resolve => setTimeout(resolve, 1500));
-                setIsLoading(false);
                 setStatus('Looking for face...');
                 startVideo();
             } catch (err) {
